@@ -1,0 +1,14 @@
+<div class="card shadow mb-3 bg-white rounded note-preview-card" id="note_{{ note.id }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ note.title|truncatechars:21 }}</h5>
+        <small class="card-subtitle mb-2 pt-2 text-muted">Last mod: {{ note.last_modified.date }}</small>
+        <br>
+        <p class="card-text">{{ note.text|truncatechars:80 }}</p>
+        <div id="badge-list">
+            {% for tag in note.getNoteTags %}
+                <a href="{% url 'note:tag_filter' tag.slug %}" class="badge badge-primary">#{{ tag.name }}</a>
+            {% endfor %}
+        </div>
+        <button type="button" value="{{ note.id }}" id="view-edit-note-{{ note.id }}" class="btn btn-outline-primary mt-1 note-model-view" data-toggle="modal" data-target="#addNoteModel">View Card</button>
+    </div>
+</div>

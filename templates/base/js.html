@@ -1,0 +1,28 @@
+{% load static %}
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Tagify Jquery -->
+<script src='{% static 'js/tagify.js' %}'></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- Will use this tagList for rendering Tag list-->
+<p id="tag-list" class="d-none">{{ tagList }}</p>
+<!-- Add note js -->
+{% include 'addNote.html' %}
+<!-- Secure Ajax csrf token JS file -->
+<script src="{% static 'js/csrf_ajax.js' %}"></script>
+
+<!-- Edit/View Note js -->
+<!-- <script src='{% static 'js/edit_view_note.js' %}'></script> -->
+
+{% include 'view_edit_note.html' %}
+
+<script>
+    $(document).ready(function() {
+      $('[data-toggle="popover"]').popover()
+  });
+</script>
+
+<script src="{% static 'js/sidebar.js' %}"></script>

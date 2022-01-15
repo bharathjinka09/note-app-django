@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row note-list-row flex-container wrap">
+        {% if note_list %}
+            {% for note in note_list %}
+                <div class="wrap">
+                    {% include 'snippet/preview.html' with note=note %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p id="empty-note-msg">You have empty Note, Create Now</p>
+        {% endif %}
+    </div>
+    <!-- dummy code for note cloning -->
+    <div class="full-note-col d-none col-3">
+        {% include 'snippet/preview.html' %}
+    </div>
+</div>
